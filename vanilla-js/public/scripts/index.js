@@ -36,6 +36,16 @@ function tileBinding(e) {
 }
 
 /**
+ * Reset all tiles
+ */
+function resetAllTiles() {
+  [...document.querySelectorAll(".tile")].map((tile) => {
+    tile.classList.remove(X_CLASS);
+    tile.classList.remove(O_CLASS);
+  });
+}
+
+/**
  * Bind all tiles
  */
 function bindAllTiles() {
@@ -44,6 +54,11 @@ function bindAllTiles() {
   });
 }
 
+function bindControls() {
+  document.querySelector("#reset").addEventListener("click", resetAllTiles);
+}
+
 function setup() {
   bindAllTiles();
+  bindControls();
 }
