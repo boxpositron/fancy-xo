@@ -27,9 +27,27 @@
 main {
   display: flex;
   flex-direction: column;
+  gap: 50px;
 
   justify-content: center;
   align-items: center;
+}
+
+main > div.game-controls > button {
+  border: none;
+  border-radius: 5px;
+
+  padding: 10px 20px;
+  margin: 10px;
+
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+main > div.game-controls > button.reset-game {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 main > div.game-board {
