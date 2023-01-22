@@ -1,0 +1,18 @@
+:root {
+  --royal-blue-dark: #03256c;
+  --denim-blue: #2541b2;
+  --sapphire-blue: #1768ac;
+  --cyan-process: #06bee1;
+  --cultured: #eeeeee;
+  --eerie-black: #18191a;
+
+  --red-crayola: #ef3054;
+
+  --primary-dark: var(--eerie-black);
+  --primary-light: var(--cultured);
+  --primary-accent: var(--cyan-process);
+  --primary-accent-darker: var(--royal-blue-dark);
+  --primary-accent-dark: var(--sapphire-blue);
+  --primary-accent-light: var(--denim-blue);
+  --primary-error: var(--red-crayola);
+}
