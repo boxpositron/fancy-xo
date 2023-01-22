@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --default-responsive-padding: 0 30px;
+
+  --navbar-height: 60px;
+  --footer-height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --default-responsive-padding: 0 100px;
+  }
+}
+
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body > nav {
+  display: flex;
+  flex-direction: row;
+
+  background-color: var(--primary-accent-light);
+  padding: var(--default-responsive-padding);
+
+  min-height: var(--navbar-height);
+}
+
+body > nav > div.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body > nav > div.brand > span.brand-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+body > nav > div.brand body > main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body > footer {
+  min-height: var(--footer-height);
+  background-color: var(--primary-accent-light);
+}
+
+body > main {
+  min-height: calc(100vh - calc(var(--navbar-height) + var(--footer-height)));
+}
