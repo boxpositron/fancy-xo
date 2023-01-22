@@ -1,0 +1,116 @@
+:root {
+  --tile-size: 100px;
+
+  --tile-color: var(--primary-light);
+  --tile-border-color: var(--primary-dark);
+  --tile-hover-color: transparent;
+
+  --tile-x-border-size: 2px;
+  --tile-o-border-size: 2.5px;
+
+  --tile-x-border: var(--tile-x-border-size) solid var(--primary-dark);
+  --tile-x-width: calc(var(--tile-size) / 2);
+
+  --tile-x-top: calc(
+    calc(var(--tile-size) / 2) - calc(var(--tile-x-border-size) / 2)
+  );
+
+  --tile-x-left: calc(calc(var(--tile-size) / 4) - calc(var(--tile-size) / 16));
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --tile-size: 150px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+main > div.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  min-height: calc(var(--tile-size) * 3);
+  min-width: calc(var(--tile-size) * 3);
+
+  padding: 20px;
+  background-color: var(--primary-light);
+}
+
+main > div.game-board > div.tile {
+  background-color: transparent;
+
+  position: relative;
+
+  border: 2px solid var(--tile-border-color);
+
+  height: var(--tile-size);
+  width: var(--tile-size);
+}
+
+main > div.game-board > div.tile:hover {
+  transition: background-color 100ms linear;
+  background-color: var(--tile-hover-color);
+}
+
+main > div.game-board > div.tile.x-mark::before {
+  content: "";
+
+  display: block;
+  position: absolute;
+
+  transform: rotate(45deg);
+
+  border: var(--tile-x-border);
+  width: var(--tile-x-width);
+
+  top: var(--tile-x-top);
+  left: var(--tile-x-left);
+}
+
+main > div.game-board > div.tile.x-mark::after {
+  content: "";
+
+  display: block;
+  position: absolute;
+
+  transform: rotate(-45deg);
+
+  border: var(--tile-x-border);
+
+  width: var(--tile-x-width);
+  top: var(--tile-x-top);
+  left: var(--tile-x-left);
+}
+
+main > div.game-board > div.tile.o-mark::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  border: var(--tile-o-border-size) solid var(--primary-dark);
+
+  height: calc(var(--tile-size) * 0.4);
+  width: calc(var(--tile-size) * 0.4);
+}
+
+main > div.game-board > div.tile {
+  cursor: pointer;
+}
+
+main > div.game-board > div.tile:has(.x-mark),
+main > div.game-board > div.tile:has(.o-mark) {
+  cursor: default;
+}
